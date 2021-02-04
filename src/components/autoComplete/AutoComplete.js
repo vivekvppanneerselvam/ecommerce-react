@@ -42,14 +42,15 @@ export default class AutoComplete extends Component {
   render() {
     const r = this.props.filter_result
     return (
-      <div className={styles.outbox} style={this.props.style}>
+      <div /* className={styles.outbox} style={this.props.style} */>
         <input
-          type="text"
+          type="search"
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           value={this.state.val}
           placeholder="Search"
+          className="search-keyword"
         />
         <div className={styles.sugges_outbox}>
           {

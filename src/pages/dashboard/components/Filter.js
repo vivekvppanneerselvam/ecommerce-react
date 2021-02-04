@@ -66,19 +66,15 @@ export default class Filter extends Component {
   render() {
     return (
       <div>
+        {/*   */}
         <MediaQuery query={device.min.tablet}>
-          <div className={styles.outbox}>
+          <div >
             <div className={styles.box}>
-              <div className={styles.title}>
-                FILTERS
-          <div className={styles.title_border}></div>
-              </div>
+              <h4>FILTERS <div className={styles.title_border}></div></h4>
               <div className={styles.content}>
                 {/* order */}
                 <div className={styles.block}>
-                  <div className={styles.sub_title}>
-                    ORDER
-                  </div>
+                  <h5 className={styles.sub_title}> ORDER </h5>
                   {this.FILTER_CONFIG['order'].map(n =>
                     <Checkbox
                       key={n}
@@ -91,9 +87,7 @@ export default class Filter extends Component {
                 </div>
                 {/* department */}
                 <div className={styles.block}>
-                  <div className={styles.sub_title}>
-                    DEPARTMENT
-                  </div>
+                  <h5 className={styles.sub_title}> DEPARTMENT</h5>
                   {this.FILTER_CONFIG['department'].map(n =>
                     <Checkbox
                       key={n}
@@ -106,9 +100,7 @@ export default class Filter extends Component {
                 </div>
                 {/* price */}
                 <div className={styles.block}>
-                  <div className={styles.sub_title}>
-                    PRICE
-                  </div>
+                  <h5 className={styles.sub_title}> PRICE </h5>
                   {this.FILTER_CONFIG['price'].map(n =>
                     <Checkbox
                       key={n}
@@ -120,38 +112,30 @@ export default class Filter extends Component {
                   )}
                 </div>
               </div>
-              <div className={styles.clear_btn} onClick={this.clearAllFilter}>
-                <button>Clear All</button>
-              </div>
+              <div className={''} onClick={this.clearAllFilter}>
+                <button className='btn-sm btn btn-secondary rounded-0'>Clear All</button>
+              </div><br/>
               {/* filter tags */}
               <div className={styles.tags}>
-                {
-                  Object.keys(this.state).map(c => (
-                    this.state[c] && this.state[c].map(n => (
-                      <div key={n} className={styles.tag}>
-                        <div className={styles.tag_content}>
-                          {n}
-                        </div>
-                        <div
-                          className={styles.tag_close}
-                          onClick={() => this.handleCloseTag(c, n)}
-                        >
-                          x
-                      </div>
-                      </div>
-                    ))))}
+                {Object.keys(this.state).map(c => (
+                  this.state[c] && this.state[c].map(n => (
+                    <div key={n} className={styles.tag}>
+                      <div className={styles.tag_content}> {n} </div>
+                      <div className={styles.tag_close} onClick={() => this.handleCloseTag(c, n)}> x</div>
+                    </div>
+                  ))))}
               </div>
             </div>
           </div>
         </MediaQuery >
-        <MediaQuery query={device.max.tablet}>
+       {/*  <MediaQuery query={device.max.tablet}>
           <Filter_md
             onChange={this.handleChange}
             clear={this.clearAllFilter}
             configs={this.FILTER_CONFIG}
             selected_name={this.state}
           />
-        </MediaQuery>
+        </MediaQuery> */}
       </div >
     )
   }

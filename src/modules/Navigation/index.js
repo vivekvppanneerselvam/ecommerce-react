@@ -1,6 +1,7 @@
 
 let history
 export const registerNav = (ref) => {
+  console.log("ref", ref)
   history = ref.history
 }
 

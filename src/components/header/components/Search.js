@@ -11,21 +11,10 @@ export default function Search({
   return (
     <div className={styles.outbox}>
       {/* search input */}
-        <div className={styles.auto}>
-          <AutoComplete
-            onChange={onChange}
-            suggest_value={handleSuggest}
-          />
-        </div>
-        <div className={styles.btn}>
-          <button
-            onClick={() => {
-              search(input_value).then(res => jumpTo('/dashboard'))
-            }}
-          >
-            Search
-          </button>
-        </div>
+      <div className={styles.auto}>
+        <AutoComplete onChange={onChange} suggest_value={handleSuggest} />
+      </div>
+      <button className="search-button" onClick={() => { search(input_value).then(res => jumpTo('/dashboard')) }}></button>
     </div>
   )
 }

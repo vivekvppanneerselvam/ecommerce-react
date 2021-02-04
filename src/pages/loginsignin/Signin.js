@@ -29,17 +29,19 @@ const INPUT_CONFIG = [
 ]
 
 
-export default function Signin({signin,signin_loading,signin_error}) {
+export default function Signin({ signin, signin_loading, signin_error }) {
   return (
     <div>
       <LoginSignin
-      INPUT_CONFIG={INPUT_CONFIG}
-      title="Signin"
-      footer_text="Do you have an account?"
-      footer_redirect="login"
-      submitAction={signin}
-      loading={signin_loading}
-      signin_error={signin_error}
+        INPUT_CONFIG={INPUT_CONFIG}
+        title="Signin"
+        footer_text="Do you have an account?"
+        footer_redirect="login"
+        footer_text2="Do you forgot your password ?"
+        footer_redirect2="forgotpassword"
+        submitAction={signin}
+        loading={signin_loading}
+        signin_error={signin_error}
       />
     </div>
   )

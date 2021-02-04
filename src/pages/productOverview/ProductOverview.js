@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styles from './stylesheets/productOverview.module.sass'
-import { Button } from 'react-bootstrap'
 import Header from '../../components/header/headerContainer'
 import Variants from './components/Variants'
 import mergeProductAndVariants from './utils/mergeProductAndVariants'
@@ -69,7 +68,7 @@ export default class ProductOverview extends Component {
                     {this.props.product.description}
                   </div>
                   <div className={styles.price}>
-                    ${this.props.product.price} CAD
+                    Rs. {this.props.product.price}
                   </div>
                   {/* dotted border */}
                   <div className={styles.border}></div>
@@ -85,8 +84,8 @@ export default class ProductOverview extends Component {
                     />
                   </div>
                   <div className={styles.btns}>
-                    <Button className={styles.btn} onClick={this.addToBag} variant="outline-primary">Add to Bag</Button>
-                    <Button className={styles.btn} variant="outline-danger">Buy Now</Button>
+                    <button className={'btn btn-primary rounded-0'} onClick={this.addToBag}>Add to Bag</button>
+                    <button className={'btn btn-danger btn-outline rounded-0'} >Buy Now</button>
                   </div>
                 </div>
               </div>

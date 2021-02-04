@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
     case GET_DEPARTMENTS_FAIL:
       return {
         loading: false,
-        error: action.payload.error.response.data
+        error: action.payload.error
       }
     default:
       return state

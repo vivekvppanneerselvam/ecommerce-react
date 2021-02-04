@@ -14,16 +14,14 @@ export default function UserHeader({ user_token }) {
         ?
         <div className={styles.loggout}>
           <NavDropdown title={`hello, ${user_token.user_name}`}>
-            <NavDropdown.Item onClick={Auth.logout} href='/'>
-              logout
-             </NavDropdown.Item>
+            <NavDropdown.Item href='/orders'>Track Orders</NavDropdown.Item>
+            <NavDropdown.Item href='/history'>Order History</NavDropdown.Item>
+            <NavDropdown.Item onClick={Auth.logout} href='/'>Logout</NavDropdown.Item>
           </NavDropdown>
         </div>
-        : 
+        :
         <div className={styles.loggout}>
-          <div className={styles.login} onClick={() => jumpTo('/login')}>
-            Login
-        </div>
+          <div className={styles.login} onClick={() => jumpTo('/login')}> Login </div>
         </div>
       }
     </div>

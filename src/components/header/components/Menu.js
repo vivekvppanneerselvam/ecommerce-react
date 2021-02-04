@@ -8,31 +8,14 @@ export default function Menu({
   getAllProducts
 }) {
   return (
-    <div className={styles.outbox}>
-      {/* lists */}
-      <div className={`${styles.lists}`}>
-        {/* departments */}
-        {departments && departments.map(d =>
-          <div className={styles.tag}
-            key={d.departmentName}
-          >
-            <DropList
-              clickCategory={(c) => getProductsByCategory(c)}
-              department={d.departmentName}
-              categories={d.categories.split(',')}
-            />
-          </div>
-        )}
-      </div>
-      {/* all product */}
-      <div className={styles.tag}
-        onClick={() => {
-          getAllProducts()
-          jumpTo('/dashboard')
-        }}
-      >
-        All Product
-      </div>
-    </div>
+    <ul className="navbar-nav">
+      <li className="nav-item active"> <a className="nav-link" onClick={() => { getAllProducts(); jumpTo('/dashboard') }}>Home </a> </li>
+      {departments && departments.map(d =>
+        <li class="nav-item dropdown" key={d.departmentName}>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{d.departmentName}</a>
+          <DropList clickCategory={(c) => getProductsByCategory(c)} department={d.departmentName} categories={d.categories} />
+        </li>
+      )}
+    </ul>
   )
 }

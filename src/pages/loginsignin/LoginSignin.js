@@ -85,6 +85,15 @@ export default class LoginSignin extends Component {
           return error
         })
     }
+    if (this.props.title === 'Forgort Password') {
+      const { email } = this.inputText
+      this.props.submitAction({ email }).then(res => {
+        jumpTo('/login')
+      }).catch(error => {
+        alert(error.response.data.error.message)
+        return error
+      })
+    }
   }
   render() {
     return (
@@ -103,9 +112,16 @@ export default class LoginSignin extends Component {
             button_title={this.props.title}
             footer_content={
               <div>
-                {this.props.footer_text} <a href={`/${this.props.footer_redirect}`}>
-                  {capitalizeString(this.props.footer_redirect)}
-                </a>
+                <div>
+                  {this.props.footer_text} <a href={`/${this.props.footer_redirect}`}>
+                    {capitalizeString(this.props.footer_redirect)}
+                  </a>
+                </div>
+                <div>
+                  {this.props.footer_text2} <a href={`/${this.props.footer_redirect2}`}>
+                    {capitalizeString(this.props.footer_redirect2)}
+                  </a>
+                </div>
               </div>
             }
           />

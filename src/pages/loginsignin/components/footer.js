@@ -8,7 +8,7 @@ const style={
 export default function footer({content}) {
   return (
     <div className="footer" style={style}>
-      {content}
+      {content}      
     </div>
   )
 }

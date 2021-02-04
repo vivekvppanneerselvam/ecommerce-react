@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import mapSearchURL from './utils/mapSearchURL'
 import jumpTo from '../../modules/Navigation'
-import Header from '../../components/header/headerContainer'
 import checkMark from '../../assets/images/checkmark.svg'
 import styles from './stylesheet/checkoutSuccess.module.sass'
 export default class CheckoutSuccess extends Component {
@@ -21,7 +20,7 @@ export default class CheckoutSuccess extends Component {
     const payment = this.props.payment
     return (
       <div className={styles.outbox}>
-        <Header />
+        
         {payment &&
           <div className={styles.box}>
             <div className={styles.checkMark}>

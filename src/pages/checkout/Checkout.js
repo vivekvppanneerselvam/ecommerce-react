@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import styles from './stylesheets/checkout.module.sass'
 import CheckoutTable from './components/CheckoutTable'
 import Subtotal from './components/Subtotal'
-import Header from '../../components/header/headerContainer'
+import jumpTo from '../../modules/Navigation'
+
 export default class Checkout extends Component {
   constructor(props) {
     super(props)
-
   }
+
   componentDidMount() {
     if (Object.keys(this.props.cart).length < 1) {
       this.props.getCartByUserId()
@@ -21,16 +22,14 @@ export default class Checkout extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <div className={styles.outbox}>
-        <Header />
         <div className={styles.box}>
           <div className={styles.content}>
             {/* title */}
-            <div className={styles.title}>
-              Checkout
-            <div className={styles.sub_title}>
-                Hi <b>{this.props.name}</b> Please review your items and press the confirm checkout button. You will enter your address information while your paying on PayPal
+            <div className={styles.title}>Checkout
+            <div className={styles.sub_title}> Hi <b>{this.props.name}</b> Please review your items and press the confirm checkout button. You will enter your address information while you submitting the order
               </div>
             </div>
             {/* table */}
@@ -50,9 +49,9 @@ export default class Checkout extends Component {
               </div>
             }
             {/* button */}
-            <div className={styles.btn}>
-              <button><a  href={this.props.url}>confirm checkout</a></button>
-            </div>
+            <br />
+            <button className="btn btn-outline-secondary rounded-0" onClick={()=>jumpTo('/payment')}>{/* <a href={this.props.url}> */}confirm checkout{/* </a> */}</button>
+
           </div>
         </div>
       </div>
